@@ -1,7 +1,7 @@
 #define _USE_MATH_DEFINES
-#include <iostream>
+#include <stdio.h>
 #include <GL/freeglut.h>
-#include <cmath>
+#include <math.h>
 
 int refreshRate = 300;
 int segNum = 4;  //porque empesamos con un cuadrado
@@ -59,9 +59,10 @@ void morphing(int segmentos) {
 	glBegin(GL_POLYGON);
 	glColor3f(0.0f, 0.0f, 1.0f);
 	for (int i = 0; i < segmentos; i++) {
-		theta = M_PI * 2.0F * float(i) / float(segmentos);
-		x = float(radio) * cosf(theta - (M_PI * 45.0F / 180.0F));
-		y = float(radio) * sinf(theta - (M_PI * 45.0F / 180.0F));
+		double theta = M_PI * 2.0 * ((double)i) / ((double)segmentos);
+        double x = ((double)radio) * cos(theta - (M_PI * 45.0 / 180.0));
+        double y = ((double)radio) * sin(theta - (M_PI * 45.0 / 180.0));
+
 		glVertex2f(x, y);
 	}
 	glEnd();
