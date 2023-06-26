@@ -15,10 +15,12 @@ void spinDisplayDer();
 float orbitaPointForX();
 float orbitaPointForY();
 void spinDisplayOrbit();
+void dibujarEsfera();
 
 float rotAng = 0.0f, spin=0.0f;
 int refreshRate = 5;
 bool iskey = false, ismouse = false;
+bool iskey2=false;
 float posx = 0.0f;
 float transX = 0.0f;
 float transY = 0.0f;
@@ -69,13 +71,28 @@ void display3D() {
     
     glRotatef(-rotAng, 0, 0, 1);
     if (iskey){
-        //glTranslatef(posx, 0, -6.0f);
-        glTranslatef(transX, 0.0f, transY);
+        glTranslatef(posx, 0, -6.0f);
+        //glTranslatef(transX, 0.0f, transY);
     }
     else
         glTranslatef(posx, 0.0f, -6.0f);
     
     dibujarpiramide();
+    //dibujarEsfera();
+    glPopMatrix();
+
+    glPushMatrix();
+    
+    glRotatef(-rotAng, 0, 0, 1);
+
+    if (iskey2){
+        //glTranslatef(posx, 0, -6.0f);
+        glTranslatef(transX, 0.0f, transY);
+    }
+    else
+        glTranslatef(-transX, 0.0f, -transY);
+    
+    dibujarEsfera();
     glPopMatrix();
 
     glPushMatrix();
@@ -124,13 +141,8 @@ void spinDisplayDer() {
 }
 
 void spinDisplayOrbit() {
-    if (ismouse) {
-        spin += 0.1;
-        if (spin > 360) {
-            spin -= 360;
-        }
-    }
-    if (iskey)
+   
+    if (iskey2)
         transX = orbitaPointForX();
         transY = orbitaPointForY();
     glutPostRedisplay();
@@ -194,11 +206,11 @@ void keyDown(int key, int,int){
 void keyUp(int key, int, int) {
     switch (key) {
     case GLUT_KEY_UP:
-        iskey = true;
+        iskey2 = true;
         glutIdleFunc(spinDisplayOrbit);
         break;
-    case GLUT_KEY_RIGHT:
-        iskey = false;
+    case GLUT_KEY_DOWN:
+        iskey2 = false;
         glutIdleFunc(NULL);
         break;
     default:
@@ -241,6 +253,13 @@ void dibujarpiramide(){
     glEnd(); 
 } 
 
-    
+void dibujarEsfera() {
+    glPushMatrix();
+    glColor3f(0.0f, 0.0f, 1.0f); // Color azul
+    glTranslatef(1.0f, 0.10f, 0.0f); // Transladar la esfera hacia arriba para que no se intersecte con la pirámide
+    glutSolidSphere(0.9f, 100, 100); // Dibujar una esfera de radio 0.5 con 50 divisiones en horizontal y vertical
+    glPopMatrix();
+}
+
 
 
