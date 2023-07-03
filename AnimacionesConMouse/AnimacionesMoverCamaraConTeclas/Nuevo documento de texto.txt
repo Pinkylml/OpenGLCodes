@@ -1,0 +1,22 @@
+Slides Unidad 7
+
+Vertex array object
+
+La rasterización solo hemos hecho poner colores.
+MOdelo---(Sistema coordenadas Locales)		Situamos los objetos.
+Vista----(Sistema de coordenadas globales, es como tal hacer mover los ojos en el ser humano)  Fijar posicion
+
+Proyecciones ----Ortogonales para una vista 2D
+	     ----Perspectiva para una vista 3D
+	Elejir zoom--<proyección
+	Tamaño imagen--<Viewport
+
+El plano ortogonal----Es como emitir vectores de proyeccion hacia un planto de 3D hcia 2D, la z se hace 0
+	Los tamaños o distancias son iguales que en los tamaños reales del objeto que se está proyectando.
+	Si aumentamos sombras, efectos de luz, hace parecer que está en 3 dimensiones
+	Solo tenemos 6 planos que pertenecen a los de un cuadrado
+Perspectiva
+	Lo que ganas es generar esa tridimensionalidad que tenemos en la realidad, aumentamos la cantidad de planos
+	que en los planos ortogonales.
+	COP---> center of projection.
+	
