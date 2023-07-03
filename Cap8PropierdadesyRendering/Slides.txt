@@ -1,0 +1,24 @@
+***********************************************Slides Caputilo 8***************************************
+
+cgtrader-------------------->	
+instalar utilitario de autodesk.
+turbosquid------------------>
+free3d
+	obj-->vert
+	mtl--->mat
+	VertexShader---(obligatorio, pone colores)
+	fragmento----(renderizar, genera pixeles para mandar al buffer de la GPU)
+	Estandares de colores
+		RGB Substracción de colores (emite luz) para pantalla
+
+		CMYK Adición de colores (emisión de tinta) para impresion
+
+Espectro visible:
+	TOno  :Al jugar con la saruración estamos cambiamos el tono del color.
+	Saturacion  cambiar valores entre 0 y 1 en glCOlor, estamos jugando con la saturación.
+	Luminosidad   % color oscuro
+
+RGB: (AW3 COLOR RGB)  Monitores hacen transformaciones gamma.
+	CIE 1931
+
+Blending----> combina colores en base a saturacion. color ensima de otro, hace un efecto de transparencia. Esto hace el blendBuffer
