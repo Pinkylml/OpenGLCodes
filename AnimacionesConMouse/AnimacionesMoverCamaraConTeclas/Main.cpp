@@ -24,7 +24,7 @@ float angleX = 0.0f, angleY = 0.0f;
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE);
+    glutInitDisplayMode(GLUT_RGB|GLUT_SINGLE|GLUT_DEPTH);
     glutInitWindowSize(640, 480);
     glutInitWindowPosition(100, 100);
     glutCreateWindow("Ejercicio de transformacion de la vista");
